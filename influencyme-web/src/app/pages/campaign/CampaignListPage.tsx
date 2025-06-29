@@ -3,13 +3,10 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { useNavigate } from 'react-router-dom'
 import { useLazyDashboardCountryQuery, useLazyFindManyHostQuery, useLazyDashboardStatusQuery } from '../../services/host.service'
-import './VigilantListPage.css'
-import logo from '../assets/nvigilant_logo_cropped.png'
+import './CampaignListPage.css'
 import { icons } from '../../common/icons/icons'
-import DashboardMaps from './DashboardMap'
-import PieChart from '../../components/charts/PieCharts'
 import { calculateRisk } from '../../common/calculate-risk'
-const VigilantListPage = () => {
+const CampaignListPage = () => {
   const navigate = useNavigate()
   const [fetchManyHosts, { data: hostManyData, error: hostManyError, isLoading: hostManyIsLoading }] = useLazyFindManyHostQuery()
   const [fetchDashboardCountry, { data: dashboardCountryData }] = useLazyDashboardCountryQuery()
@@ -82,16 +79,9 @@ const VigilantListPage = () => {
 
   return (
     <div className="container-vigilant">
-      <img src={logo} style={{
-        height: '2rem',
-        marginBottom: '2rem'
-      }} />
       <div className="filter-container">
-        <div className="map-section">
-          <DashboardMaps data={dashboardCountryData || ['Country', "Hosts"]} />
-        </div>
         <div className="filter">
-          <h3 style={{ color: 'wheat' }} className="form-title">TARGET LIST</h3>
+          <h3 style={{ color: 'wheat' }} className="form-title">Campaign List</h3>
           <Form style={{ width: '18rem' }}>
             <Form.Group controlId="ipAddress" style={{ marginBottom: '1rem' }} >
               <Form.Control
@@ -142,9 +132,6 @@ const VigilantListPage = () => {
             </div>
 
           </Form>
-        </div>
-        <div className="map-section">
-          <PieChart data={dashboardStatusData || ['Status', "Count"]} />
         </div>
       </div>
 
@@ -198,4 +185,4 @@ const VigilantListPage = () => {
   )
 }
 
-export default VigilantListPage
+export default CampaignListPage

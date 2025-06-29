@@ -1,6 +1,6 @@
 {
-  "short_name": "NVIGILANT",
-  "name": "NVIGILANT",
+  "short_name": "Campaign",
+  "name": "Campaign",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

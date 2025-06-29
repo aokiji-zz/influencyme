@@ -23,8 +23,10 @@ export class CampaignController {
   }
 
   @Get()
-  findAll() {
-    return this.campaignService.findAll();
+  @ApiQuery({name:"take", type:String})
+  @ApiQuery({name:"skip", type:String})
+  findAll(take:string, skip:string) {
+    return this.campaignService.findAll(parseInt(take), parseInt(skip));
   }
 
   @Get(':id')
