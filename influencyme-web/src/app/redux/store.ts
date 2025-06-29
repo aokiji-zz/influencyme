@@ -6,7 +6,7 @@ import { generalReducer } from './slices/general.slice'
 import { userReducer } from './slices/user.slice'
 import { userAPI } from '../services/user.service'
 import { messageApi } from '../services/telegram-bots.service'
-import { hostsApi } from '../services/host.service'
+import { campaignApi } from '../services/campaign.service'
 import { scansApi } from '../services/scan-queue.service'
 import { filesAPi } from '../services/files.service'
 
@@ -20,7 +20,7 @@ export const store = configureStore({
     [authAPI.reducerPath]: authAPI.reducer,
     [userAPI.reducerPath]: userAPI.reducer,
     [messageApi.reducerPath]: messageApi.reducer,
-    [hostsApi.reducerPath]: hostsApi.reducer,
+    [campaignApi.reducerPath]: campaignApi.reducer,
     [scansApi.reducerPath]: scansApi.reducer,
     [filesAPi.reducerPath]: filesAPi.reducer,
   },
@@ -28,7 +28,7 @@ export const store = configureStore({
     .concat([authAPI.middleware])
     .concat([userAPI.middleware])
     .concat([messageApi.middleware])
-    .concat([hostsApi.middleware])
+    .concat([campaignApi.middleware])
     .concat([scansApi.middleware])
     .concat([filesAPi.middleware])
 })
