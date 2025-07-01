@@ -21,7 +21,7 @@ RUN yarn build
 # Remove devDependencies to optimize image size
 
 # Expose the port your API runs on
-EXPOSE 8734
+EXPOSE 8735
 
 # Start the application
-CMD ["node", "dist/src/main.js"]
+CMD ["node", "dist/main.js"]
