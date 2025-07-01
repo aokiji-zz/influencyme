@@ -10,6 +10,6 @@ GERAR A MIGRAÇÃO
 
 Rode o script de migação com "npx prisma migrate dev" apontando para o conteiner do banco.
 
-CASO RODE PRECISE RODAR API LOCALMENTE
+CASO PRECISE RODAR API LOCALMENTE
 
 Execute a api localmente com "yarn start:dev" caso seja a sua preferência. Parando de rodar o container da api antes.
