@@ -61,6 +61,7 @@ const CampaignCreatePage = () => {
           <Form.Group>
             <Form.Label style={{ color: 'wheat' }}>Name</Form.Label>
             <Form.Control
+              style={{ marginLeft: '0.5rem' }}
               type="text"
               name="name"
               placeholder="Enter campaign name"
@@ -73,6 +74,7 @@ const CampaignCreatePage = () => {
           <Form.Group>
             <Form.Label style={{ color: 'wheat' }}>Description</Form.Label>
             <Form.Control
+              style={{ marginLeft: '0.5rem' }}
               as="textarea"
               rows={3}
               name="description"
@@ -89,6 +91,7 @@ const CampaignCreatePage = () => {
               name="type"
               value={campaign.type}
               onChange={handleChange}
+              style={{ marginLeft: '0.5rem' }}
             >
               <option value={CampaignType.INFLUENCE}>INFLUENCE</option>
               <option value={CampaignType.TRADITIONAL}>TRADITIONAL</option>
@@ -98,6 +101,7 @@ const CampaignCreatePage = () => {
           <Form.Group>
             <Form.Label style={{ color: 'wheat' }}>Cost</Form.Label>
             <Form.Control
+              style={{ marginLeft: '0.5rem' }}
               type="text"
               name="cost"
               placeholder="Ex: 123,45"
@@ -110,6 +114,7 @@ const CampaignCreatePage = () => {
           <Form.Group>
             <Form.Label style={{ color: 'wheat' }}>Worked Hours</Form.Label>
             <Form.Control
+              style={{ marginLeft: '0.5rem' }}
               type="number"
               name="workedHours"
               value={campaign.workedHours}
@@ -121,6 +126,7 @@ const CampaignCreatePage = () => {
           <Form.Group>
             <Form.Label style={{ color: 'wheat' }}>Start Date</Form.Label>
             <Form.Control
+              style={{ marginLeft: '0.5rem' }}
               type="datetime-local"
               name="startDate"
               value={campaign.startDate}
@@ -132,6 +138,7 @@ const CampaignCreatePage = () => {
           <Form.Group>
             <Form.Label style={{ color: 'wheat' }}>End Date</Form.Label>
             <Form.Control
+              style={{ marginLeft: '0.5rem' }}
               type="datetime-local"
               name="endDate"
               value={campaign.endDate}
