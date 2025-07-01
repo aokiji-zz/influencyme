@@ -1,0 +1,142 @@
+.error-message {
+  color: #ff4d4f; /* Vermelho para destacar o erro */
+  background-color: #fff1f0; /* Fundo claro para contraste */
+  border: 1px solid #ffa39e; /* Borda para delimitar a mensagem */
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.card {
+  padding: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.button {
+  padding-top: 20px;
+}
+
+.principal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+  background-color: #161625;
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+
+.info-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap; /* Permite que os itens quebrem linha se necessário */
+  gap: 13px; /* Espaçamento entre os containers */
+}
+
+.info-card {
+  flex: 1 1 calc(50% - 20px); /* Cada container ocupa 50% do espaço menos o gap */
+  background-color: #f8f9fa;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(37, 25, 25, 0.507);
+  background-color: #86aaf9;
+}
+
+@media (max-width: 768px) {
+  .info-card {
+    flex: 1 1 100%; /* Em telas menores, cada container ocupa 100% */
+  }
+}
+
+.info-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.info-card li {
+  margin-bottom: 10px;
+}
+
+.info-card a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.info-card:hover {
+  border-left: 0 solid #3b82f6;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap; /* para quebrar linha em telas pequenas */
+}
+
+
+.filter {
+  min-width: 300px;
+  max-width: 400px;
+}
+
+/* status */
+.status {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: white;
+}
+.status-up {
+  background-color: #4fb373; 
+}
+.status-down {
+  background-color: #ce5555; 
+}
+
+
+.form-wrapper {
+  background-color: #1f1f2e;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
