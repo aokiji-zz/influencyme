@@ -1,13 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { RootState } from '../redux/store'
 import { urlBaseApiDev } from '../common/base-url'
-import { Host } from './model/host'
+import { Campaign } from './model/campaign.dto'
 
-export const campaignApi = createApi({
-  reducerPath: 'campaignApi',
+export const campaignsApi = createApi({
+  reducerPath: 'campansApi',
   tagTypes: ['Post', 'Get'],
   baseQuery: fetchBaseQuery({
-    baseUrl: `${urlBaseApiDev}/campaign`,
+    baseUrl: `${urlBaseApiDev}/campaigns`,
     prepareHeaders: (headers, { getState }) => {
       const { access_token } = (getState() as RootState).authReducer
       if (access_token) {
@@ -17,29 +17,33 @@ export const campaignApi = createApi({
     },
   }),
   endpoints: (build) => ({
-    findManyCampaign: build.query<Host[], any>({
-      query: ({ take, skip, ports, cves, cpes }) => {
+    findManyCampaign: build.query<Campaign[], any>({
+      query: ({ take, skip }) => {
         const params = new URLSearchParams();
 
         if (take) params.append('take', take);
         if (skip) params.append('skip', skip);
-        if (ports) params.append('ports', ports);
-        if (cves) params.append('cves', cves);
-        if (cpes) params.append('cpes', cpes);
 
         return {
           method: 'GET',
-          url: `findMany?${params.toString()}`,
+          url: `?${params.toString()}`,
         };
       },
     }),
-    findUniqueCampaign: build.query<any, string>({
-      query: (campaignCode) => ({
+    findUniqueCampaign: build.query<Campaign, { id: string }>({
+      query: ({ id }) => ({
         method: 'GET',
-        url: `${campaignCode}`,
+        url: `/${id}`,
+      }),
+    }),
+    createCampaign: build.mutation<Campaign, Omit<Campaign, 'id'>>({
+      query: (body) => ({
+        method: 'POST',
+        body: body,
+        url: ``,
       }),
     }),
   }),
 
 })
-export const { useLazyFindManyCampaignQuery, useLazyFindUniqueCampaignQuery } = campaignApi
+export const { useLazyFindManyCampaignQuery, useLazyFindUniqueCampaignQuery, useCreateCampaignMutation } = campaignsApi

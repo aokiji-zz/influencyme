@@ -20,6 +20,7 @@ model Campaign {
   type        CampaignType
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
+  isActive    Boolean      @default(true)
 }
 
 enum CampaignType {

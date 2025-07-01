@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { CreateCampaignDto } from './dto/create-user.dto';
+import { CreateCampaignDto } from './dto/create-campaign.dto';
 @Injectable()
 export class CampaignService {
   constructor(private prisma: PrismaService) { }
@@ -10,16 +10,24 @@ export class CampaignService {
 
     return this.prisma.campaign.create({
       data: {
-        ...data,
+        startDate: new Date(data.startDate),
+        description: data.description,
+        cost: data.cost,
+        endDate: new Date(data.endDate),
+        name: data.name,
+        type: data.type,
+        isActive: data.isActive,
         workedHours: data.workedHours + extraHours,
       },
     });
   }
 
-  findAll(take = 10, skip = 0) {
+  findAll(take: string, skip: string, isActive = true) {
     return this.prisma.campaign.findMany({
-      take,
-      skip,
+      take: take ? parseInt(take) : 10,
+      skip: skip ? parseInt(skip) : 0,
+      // where: { isActive: { equals: isActive } },
+      orderBy: { createdAt: 'desc' },
     });
   }
 

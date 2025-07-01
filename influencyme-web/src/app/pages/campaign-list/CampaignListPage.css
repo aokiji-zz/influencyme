@@ -34,7 +34,7 @@
   padding-top: 20px;
 }
 
-.container-vigilant {
+.principal-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,14 +45,14 @@
   margin-left: 2rem;
 }
 
-.host-info {
+.info-container {
   margin-top: 2rem;
   display: flex;
   flex-wrap: wrap; /* Permite que os itens quebrem linha se necessário */
   gap: 13px; /* Espaçamento entre os containers */
 }
 
-.host-card {
+.info-card {
   flex: 1 1 calc(50% - 20px); /* Cada container ocupa 50% do espaço menos o gap */
   background-color: #f8f9fa;
   padding: 15px;
@@ -63,26 +63,26 @@
 }
 
 @media (max-width: 768px) {
-  .host-card {
+  .info-card {
     flex: 1 1 100%; /* Em telas menores, cada container ocupa 100% */
   }
 }
 
-.host-card ul {
+.info-card ul {
   list-style-type: none;
   padding: 0;
 }
 
-.host-card li {
+.info-card li {
   margin-bottom: 10px;
 }
 
-.host-card a {
+.info-card a {
   color: blue;
   text-decoration: underline;
 }
 
-.host-card:hover {
+.info-card:hover {
   border-left: 0 solid #3b82f6;
   transform: translateY(-3px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -99,10 +99,6 @@
   flex-wrap: wrap; /* para quebrar linha em telas pequenas */
 }
 
-.map-section {
-  flex: 1;
-  min-width: 300px;
-}
 
 .filter {
   min-width: 300px;
@@ -122,33 +118,25 @@
 .status-down {
   background-color: #ce5555; 
 }
-.status-pending {
-  background-color: #aa9c8f; 
-}
-/* Risk levels */
-.risk-low {
-  background-color: #4fb373; /* Verde para baixo risco */
-  color: white;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-weight: bold;
-  display: inline-block;
+
+
+.form-wrapper {
+  background-color: #1f1f2e;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 100%;
 }
 
-.risk-medium {
-  background-color: #f59e0b; /* Laranja para risco médio */
-  color: white;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-weight: bold;
-  display: inline-block;
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.risk-high {
-  background-color: #ce5555; /* Vermelho para alto risco */
-  color: white;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-weight: bold;
-  display: inline-block;
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
