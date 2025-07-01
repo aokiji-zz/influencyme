@@ -28,8 +28,15 @@ export class CampaignController {
   @Get()
   @ApiQuery({ name: 'take', required: false, type: String })
   @ApiQuery({ name: 'skip', required: false, type: String })
-  findAll(@Query('take') take?: string, @Query('skip') skip?: string) {
-    return this.campaignService.findAll(take, skip);
+  @ApiQuery({ name: 'isActive', required: false, type: String })
+  findAll(
+    @Query('take') take?: string,
+    @Query('skip') skip?: string,
+    @Query('isActive') isActive?: string,
+  ) {
+    let active = true;
+    isActive === 'isActive' ? (active = true) : (active = false);
+    return this.campaignService.findAll(take, skip, active);
   }
 
   @Get(':id')

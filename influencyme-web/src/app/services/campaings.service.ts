@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { RootState } from '../redux/store'
 import { urlBaseApiDev } from '../common/base-url'
-import { Campaign } from './model/campaign'
+import { Campaign } from './model/campaign.dto'
 
 export const campaignsApi = createApi({
   reducerPath: 'campansApi',
@@ -30,13 +30,20 @@ export const campaignsApi = createApi({
         };
       },
     }),
-    findUniqueCampaign: build.query<any, string>({
-      query: (ipAddressOrDomain) => ({
+    findUniqueCampaign: build.query<Campaign, { id: string }>({
+      query: ({ id }) => ({
         method: 'GET',
-        url: `/${ipAddressOrDomain}`,
+        url: `/${id}`,
+      }),
+    }),
+    createCampaign: build.mutation<Campaign, Omit<Campaign, 'id'>>({
+      query: (body) => ({
+        method: 'POST',
+        body: body,
+        url: ``,
       }),
     }),
   }),
 
 })
-export const { useLazyFindManyCampaignQuery, useLazyFindUniqueCampaignQuery } = campaignsApi
+export const { useLazyFindManyCampaignQuery, useLazyFindUniqueCampaignQuery, useCreateCampaignMutation } = campaignsApi

@@ -10,18 +10,23 @@ export class CampaignService {
 
     return this.prisma.campaign.create({
       data: {
-        ...data,
+        startDate: new Date(data.startDate),
+        description: data.description,
+        cost: data.cost,
+        endDate: new Date(data.endDate),
+        name: data.name,
+        type: data.type,
+        isActive: data.isActive,
         workedHours: data.workedHours + extraHours,
       },
     });
   }
 
   findAll(take: string, skip: string, isActive = true) {
-    console.log('findAll', { take, skip, isActive });
     return this.prisma.campaign.findMany({
       take: take ? parseInt(take) : 10,
       skip: skip ? parseInt(skip) : 0,
-      where: { isActive: { equals: isActive } },
+      // where: { isActive: { equals: isActive } },
       orderBy: { createdAt: 'desc' },
     });
   }

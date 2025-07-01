@@ -8,8 +8,8 @@ const CampaignListPage = () => {
   const navigate = useNavigate()
   const [fetchManyCampaigns, { data: campaignsData, error: campaignserror, isLoading: campaignsLoading }] = useLazyFindManyCampaignQuery()
   const [pagination, setPagination] = useState({ skip: 0, take: 20 })
-  const goToHost = (ipAddress: string) => {
-    navigate('/', { state: ipAddress })
+  const goToCampaign = (id: string) => {
+    navigate(`/campaigns`, { state: { id } })
   }
   const handleNext = () => {
     setPagination(prev => ({ ...prev, skip: prev.skip + prev.take }))
@@ -36,7 +36,7 @@ const CampaignListPage = () => {
   }, [pagination, campaignsData])
 
   return (
-    <div className="container-vigilant">
+    <div className="principal-container">
       <div className="filter-container">
         <div className="filter">
           <h3 style={{ color: 'wheat' }} className="form-title">CAMPAIGN LIST</h3>
@@ -69,37 +69,30 @@ const CampaignListPage = () => {
             {campaignserror && 'data' in campaignserror && (campaignserror.data as any)?.message || ''}
           </p>
         ) : (
-          <div className="host-info">
+          <div className="info-container">
             {campaignsData?.map((campaign) => (
-              <div key={campaign.id} className="host-card">
-                <strong>name:</strong>
-                <Button onClick={() => goToHost(campaign.id || '')}>
+              <div key={campaign.id} className="info-card">
+                <p><b>Name:</b></p>
+                <Button onClick={() => goToCampaign(campaign.id || '')}>
                   {`${campaign.name} - ${campaign.id}`}
                 </Button>`
                 <br />
-                <strong>Name: </strong>
-                {campaign?.name}
+                <p><b>Description:</b></p>
+                {campaign?.description || 'No description available'}
                 <br />
-                <strong>Description: </strong>
-                {campaign.description || 'No description available'}
-                <br />
-                {/* <strong>Status: </strong>
+                <p><b>Status:</b></p>
                 <span
-                  className={`status ${campaign.status === 'UP'
-                    ? 'status-up'
-                    : campaign.status === 'DOWN'
-                      ? 'status-down'
-                      : 'status-pending'
-                    }`}
+                  className={`status ${campaign?.isActive ? 'status-up' : 'status-down'}`}
                 >
-                  {campaign.status || "PENDING"}
+                  {campaign?.isActive ? 'Active' : 'Inactive'}
                 </span>
-                <br /> */}
+                <br />
               </div>
             ))}
           </div>
-        )}
-      </div>
+        )
+        }
+      </div >
 
     </div >
   )

@@ -1,6 +1,6 @@
-enum CampaignType {
-  influencer = 'influencer',
-  traditional = 'traditional',
+export enum CampaignType {
+  INFLUENCE = 'INFLUENCE',
+  TRADITIONAL = 'TRADITIONAL',
 }
 
 export interface Campaign {
@@ -14,4 +14,5 @@ export interface Campaign {
   type: CampaignType;
   createdAt: string;
   updatedAt: string;
+  isActive: boolean;
 }
