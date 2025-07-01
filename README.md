@@ -12,4 +12,4 @@ PASSO 2 - Rode o script de migação com "npx prisma migrate dev" apontando para
 
 ```CASO PRECISE RODAR API LOCALMENTE (FAÇA ISSO SÓ APÓS OS PASSOS 1 E 2 TEREM SIDO EXECUTADOS COM SUCESSO)```
 
-Execute a api localmente com "yarn start:dev" caso seja a sua preferência. Parando de rodar o container da api antes.
+```Execute a api localmente com "yarn start:dev" caso seja a sua preferência. Parando de rodar o container da api antes.```
